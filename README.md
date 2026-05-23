@@ -13,10 +13,10 @@ Bạn cần cài trình biên dịch (MSVC, GCC, Clang,...) để chạy chươn
 * Hướng dẫn cài đặt GCC qua Cygwin: [Xem tại đây](https://www.youtube.com/watch?v=0rf_Ts2r33I)
 
 ### Bước 2: Chuẩn bị file
-Tải và đặt 3 file `main.c`, `quanly.c`, `quanly.h` vào cùng một thư mục (ví dụ: `D:\code c`).
+Tải và đặt 4 file `main.c`, `quanly_account.c`,`quanly_service.c` `quanly.h` vào cùng một thư mục (ví dụ: `D:\code c`).
 
 ### Bước 3: Biên dịch và thực thi
-1. Mở **Command Prompt** và di chuyển tới thư mục chứa file chương trình.
+1. Mở **Command Prompt** và di chuyển tới thư mục chứa file chương trình.(ví dụ: cd "D:\code c" ).
 2. Nhập lệnh sau để biên dịch:
 ```bash
-gcc main.c quanly.c -o phanmemquanly
+gcc main.c quanly_account.c quanly_service.c -o app_quanly
