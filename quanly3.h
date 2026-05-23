@@ -25,7 +25,7 @@ void batDauChoi(KhachHang *kh);
 void goiMon(KhachHang *kh);
 void thanhToan(KhachHang *kh);
 void xemThongTin(KhachHang *kh);
-void hienThiBangGia(); // BỔ SUNG HÀM QUẢNG CÁO
+void hienThiBangGia(); 
 
 void luuDuLieu(KhachHang *head);
 void taiDuLieu(KhachHang **head);
