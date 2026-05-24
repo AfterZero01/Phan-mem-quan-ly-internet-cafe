@@ -146,3 +146,33 @@ void luuDuLieu(KhachHang *head) {
     fclose(f);
     printf("\n\033[1;32m[Backup] Dong bo du lieu vao database.txt thanh cong!\033[0m\n");
 }
+// 4. ĐỌC DỮ LIỆU
+void taiDuLieu(KhachHang **head) { 
+    FILE* f = fopen("database.txt", "r");
+    if (f == NULL) {
+        return;
+    }
+
+    char ten[50], mk[50];
+    int may, vip, dung;
+    float du, dichVu;
+    double tongTg;
+    time_t gio;
+
+    while (fscanf(f, "%s %s %d %f %f %lf %d %ld %d", ten, mk, &may, &du, &dichVu, &tongTg, &vip, &gio, &dung) == 9) {
+        KhachHang* nodeMoi = (KhachHang*)malloc(sizeof(KhachHang));
+        strcpy(nodeMoi->tenKhach, ten);
+        strcpy(nodeMoi->matKhau, mk);
+        nodeMoi->soMay = may;
+        nodeMoi->soDu = du;
+        nodeMoi->tienDichVu = dichVu;
+        nodeMoi->tongThoiGian = tongTg;
+        nodeMoi->capDoVIP = vip;
+        nodeMoi->gioBatDau = gio;
+        nodeMoi->dangSuDung = dung;
+
+        nodeMoi->next = *head;
+        *head = nodeMoi;
+    }
+    fclose(f);
+}
