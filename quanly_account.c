@@ -127,3 +127,22 @@ KhachHang* dangNhap(KhachHang *head) {
     }
     
 }
+// 3. GHI DỮ LIỆU
+void luuDuLieu(KhachHang *head) { 
+    FILE* f = fopen("database.txt", "w");
+    if (f == NULL) {
+        printf("\n\033[1;31m[Loi] Khong the luu file du lieu!\033[0m\n");
+        return;
+    }
+
+    KhachHang* current = head;
+    while (current != NULL) {
+        fprintf(f, "%s %s %d %.0f %.0f %.0f %d %ld %d\n",
+            current->tenKhach, current->matKhau, current->soMay, current->soDu,
+            current->tienDichVu, current->tongThoiGian, current->capDoVIP,
+            current->gioBatDau, current->dangSuDung);
+        current = current->next;
+    }
+    fclose(f);
+    printf("\n\033[1;32m[Backup] Dong bo du lieu vao database.txt thanh cong!\033[0m\n");
+}
