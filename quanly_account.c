@@ -176,3 +176,21 @@ void taiDuLieu(KhachHang **head) {
     }
     fclose(f);
 }
+// 5. GIẢI PHÓNG RAM
+
+void giaiPhongBoNho(KhachHang **head) { 
+    KhachHang* current = *head;
+    KhachHang* nextNode;
+
+    while (current != NULL) {
+        nextNode = current->next;
+        free(current);
+        current = nextNode;
+    }
+    *head = NULL;
+    printf("\033[1;32m[RAM] Da don sach bo nho vung dem.\033[0m\n");
+}
+// 6. ĐỆ QUY
+int demSoLuongKhach(KhachHang *node) { 
+    return (node == NULL) ? 0 : 1 + demSoLuongKhach(node->next); 
+}
